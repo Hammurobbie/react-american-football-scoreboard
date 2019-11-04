@@ -8,12 +8,16 @@ function App() {
 
   const [homeCount, setHomeCount] = useState(0);
   const [awayCount, setAwayCount] = useState(0);
+  const [quarter, setQuarter] = useState(1);
+  const [down, setDown] = useState(1);
+  const [yards, setYards] = useState(10);
+  const [ball, setBall] = useState(0);
 
   return (
     <div className="container">
-      <section className="scoreboard">
+      <section className="scoreboard" style={{ backgroundColor: "tomato" }}>
         <div className="topRow">
-          <div className="home">
+          <div className="home" style={{ backgroundColor: "#234099" }}>
             <h2 className="home__name">Lions</h2>
 
             {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
@@ -21,7 +25,7 @@ function App() {
             <div className="home__score">{homeCount}</div>
           </div>
           <div className="timer">00:03</div>
-          <div className="away">
+          <div className="away" style={{ backgroundColor: "#23997b" }}>
             <h2 className="away__name">Tigers</h2>
             <div className="away__score">{awayCount}</div>
           </div>
@@ -56,6 +60,39 @@ function App() {
             onClick={() => setAwayCount(awayCount + 3)}
           >
             Away Field Goal
+          </button>
+        </div>
+        <div className="awayButtons">
+          <button
+            className="awayButtons__touchdown"
+            onClick={() => setQuarter(quarter + 1)}
+          >
+            Quarter
+          </button>
+          <button
+            className="awayButtons__touchdown"
+            onClick={() => setDown(down + 1)}
+          >
+            Down
+          </button>
+        </div>
+        <div className="awayButtons">
+          <button
+            className="awayButtons__touchdown"
+            onClick={() => setYards(yards - 1)}
+          >
+            ToGo
+          </button>
+          <button
+            className="awayButtons__touchdown"
+            onClick={() => setBall(ball + 1)}
+          >
+            BallOn
+          </button>
+        </div>
+        <div className="awayButtons">
+          <button className="awayButtons__touchdown">
+            Timer Stop/<br></br>Start
           </button>
         </div>
       </section>
